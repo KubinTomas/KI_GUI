@@ -49,7 +49,6 @@
             // 
             // canvasRefresherTimer
             // 
-            this.canvasRefresherTimer.Enabled = true;
             this.canvasRefresherTimer.Tick += new System.EventHandler(this.canvasRefresherTimer_Tick);
             // 
             // PreparedPainting

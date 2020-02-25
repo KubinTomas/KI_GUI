@@ -34,9 +34,16 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
             Id = UniqueId;
         }
 
+        public abstract void Update(Point currentMousPosition);
+
         public Rectangle GetRectangle()
         {
             return new Rectangle(Position.X, Position.Y, Size.Width, Size.Height);
+        }
+
+        public int GetDistance(Point p1, Point p2)
+        {
+            throw new NotImplementedException();
         }
 
         public abstract void Draw(Graphics g);

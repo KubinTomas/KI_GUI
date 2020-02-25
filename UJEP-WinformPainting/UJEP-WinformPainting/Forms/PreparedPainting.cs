@@ -7,20 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UJEP_WinformPainting.Classes;
+using UJEP_WinformPainting.Classes.Managers.Main;
+using UJEP_WinformPainting.Classes.PaitingObjects;
 
 namespace UJEP_WinformPainting.Forms
 {
     public partial class PreparedPainting : Form
     {
+
+        private MainManager manager;
         public PreparedPainting()
         {
             InitializeComponent();
 
+            manager = new MainManager(new PaintingMemoryManager());
         }
 
         private void canvas_Paint(object sender, PaintEventArgs e)
         {
             var graphics = e.Graphics;
+
+            manager.MemoryManager.Draw(graphics);
         }
 
         /// <summary>
@@ -30,6 +38,9 @@ namespace UJEP_WinformPainting.Forms
         /// <param name="e"></param>
         private void canvas_MouseUp(object sender, MouseEventArgs e)
         {
+            manager.EndPreview();
+
+            canvas.Refresh();
         }
 
         /// <summary>
@@ -40,6 +51,12 @@ namespace UJEP_WinformPainting.Forms
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
             var mousePosition = e.Location;
+
+            var pRectangle = new PRectangle(mousePosition, new Size(2, 2), Pens.Black);
+
+            manager.BeginPreview(pRectangle);
+
+            canvas.Refresh();
         }
 
         private void canvasRefresherTimer_Tick(object sender, EventArgs e)
@@ -50,7 +67,10 @@ namespace UJEP_WinformPainting.Forms
 
         private void canvas_MouseMove(object sender, MouseEventArgs e)
         {
+            manager.UpdatePreview(e.Location, manager.SelectedObject);
 
+            if (manager.SelectedObject != null)
+                canvas.Refresh();
         }
     }
 }

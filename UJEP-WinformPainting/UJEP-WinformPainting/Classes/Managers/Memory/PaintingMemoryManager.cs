@@ -9,7 +9,7 @@ using UJEP_WinformPainting.Classes.PaitingObjects;
 
 namespace UJEP_WinformPainting.Classes
 {
-    class PaintingMemoryManager: IPaintingMemory
+    class PaintingMemoryManager: IPaintingMemoryManager
     {
         private List<PaintingObject> paintingObjects;
 
