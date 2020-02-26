@@ -50,11 +50,7 @@ namespace UJEP_WinformPainting.Forms
         /// <param name="e"></param>
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
-            var mousePosition = e.Location;
-
-            var pRectangle = new PRectangle(mousePosition, new Size(2, 2), Pens.Black);
-
-            manager.BeginPreview(pRectangle);
+            manager.BeginPreview(e.Location);
 
             canvas.Refresh();
         }

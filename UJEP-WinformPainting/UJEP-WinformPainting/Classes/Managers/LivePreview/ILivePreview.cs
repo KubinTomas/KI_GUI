@@ -17,6 +17,7 @@ namespace UJEP_WinformPainting.Classes.Managers.LivePreview
         /// </summary>
         /// <param name="paintingObject"></param>
         void BeginPreview(PaintingObject paintingObject);
+        void BeginPreview(Point mousePosition);
         void EndPreview();
     }
 }

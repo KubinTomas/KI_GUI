@@ -4,21 +4,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UJEP_WinformPainting.Classes.ColorCon;
 
 namespace UJEP_WinformPainting.Classes.PaitingObjects
 {
     class PRectangle : PaintingObject
     {
         private readonly Point originalStartPosition;
-        public Pen Pen { get; set; }
-        public PRectangle(Point position, Size size, Pen pen) : base(position, size)
+        public PRectangle(Point position, Size size, ColorContainer colorContainer) : base(position, size, colorContainer)
         {
-            Pen = pen;
             originalStartPosition = new Point(position.X, position.Y);
         }
         public override void Draw(Graphics g)
         {
-            g.DrawRectangle(Pen, GetRectangle());
+            g.DrawRectangle(ColorContainer.Pen, GetRectangle());
         }
         public override void Update(Point currentMousPosition)
         {
@@ -42,6 +41,11 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
 
             Size = new Size(width, height);
             Position = new Point(posX, posY);
+        }
+
+        public override PaintingObject GetInstance(Point position, Size size, ColorContainer colorContainer)
+        {
+            return new PRectangle(position, size, colorContainer);
         }
     }
 }

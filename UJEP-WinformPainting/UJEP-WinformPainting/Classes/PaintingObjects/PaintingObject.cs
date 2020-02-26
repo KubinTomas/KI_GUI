@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UJEP_WinformPainting.Classes.ColorCon;
 
 namespace UJEP_WinformPainting.Classes.PaitingObjects
 {
@@ -23,16 +24,19 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
         #endregion
 
         public readonly int Id;
-        public Color Color { get; set; }
+        public ColorContainer ColorContainer{ get; set; }
         public Point Position { get; set; }
         public Size Size { get; set; }
 
-        public PaintingObject(Point position, Size size)
+        public PaintingObject(Point position, Size size, ColorContainer colorContainer)
         {
             Position = position;
             Size = size;
             Id = UniqueId;
+            ColorContainer = colorContainer;
         }
+
+        public abstract PaintingObject GetInstance(Point position, Size size, ColorContainer colorContainer);
 
         public abstract void Update(Point currentMousPosition);
 
