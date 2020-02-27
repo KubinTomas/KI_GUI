@@ -52,6 +52,7 @@
     <Compile Include="Classes\Managers\Memory\IPaintingMemoryManager.cs" />
     <Compile Include="Classes\Managers\Memory\PaintingMemoryManager.cs" />
     <Compile Include="Classes\PaintingObjects\PaintingObject.cs" />
+    <Compile Include="Classes\PaintingObjects\PCircle.cs" />
     <Compile Include="Classes\PaintingObjects\PRectangle.cs" />
     <Compile Include="Classes\Tools\CircleTool.cs" />
     <Compile Include="Classes\Tools\RectangleTool.cs" />

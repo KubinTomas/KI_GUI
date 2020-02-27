@@ -23,6 +23,8 @@ namespace UJEP_WinformPainting.Classes.Managers.Main
             this.MemoryManager = memoryManager;
 
             this.SelectedTool = Tool.Default;
+
+            this.SelectedTool = Tool.Circle;
         }
 
         public void UpdatePreview(Point currentMousePosition, PaintingObject paintingObject)
