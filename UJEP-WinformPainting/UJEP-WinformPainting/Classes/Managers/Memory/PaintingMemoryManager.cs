@@ -36,6 +36,7 @@ namespace UJEP_WinformPainting.Classes
             return paintingObjects.SingleOrDefault(c => c.Id == id);
         }
 
+    
         public void Remove(PaintingObject paintingObject)
         {
             paintingObjects.Remove(paintingObject);

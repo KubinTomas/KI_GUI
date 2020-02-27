@@ -44,13 +44,9 @@ namespace UJEP_WinformPainting.Classes.Managers.Main
 
         public void BeginPreview(Point mousePosition)
         {
-            var x = SelectedTool.PaintingType;
+            var paintingObject = SelectedTool.PaintingObject.GetInstance(mousePosition);
 
-            var q =((PRectangle));
-
-            MemoryManager.Add(paintingObject);
-
-            SelectedObject = paintingObject;
+            BeginPreview(paintingObject);
         }
     }
 }

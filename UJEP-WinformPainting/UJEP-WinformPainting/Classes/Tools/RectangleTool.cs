@@ -16,6 +16,7 @@ namespace UJEP_WinformPainting.Classes.Tools
             Name = "Rectangle tool";
             IsEnabled = true;
             PaintingType = typeof(PRectangle);
+            PaintingObject = new PRectangle();
 
             Cursor = Cursors.Hand;
         }

@@ -19,5 +19,11 @@ namespace UJEP_WinformPainting.Classes.ColorCon
             Color = color;
             Pen = pen;
         }
+        public ColorContainer()
+        {
+            Brush = Brushes.Black;
+            Color = Color.Black;
+            Pen = Pens.Black;
+        }
     }
 }

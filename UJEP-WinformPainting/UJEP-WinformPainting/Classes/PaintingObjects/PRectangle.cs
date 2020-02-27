@@ -15,6 +15,9 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
         {
             originalStartPosition = new Point(position.X, position.Y);
         }
+
+        public PRectangle() { }
+
         public override void Draw(Graphics g)
         {
             g.DrawRectangle(ColorContainer.Pen, GetRectangle());
@@ -46,6 +49,11 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
         public override PaintingObject GetInstance(Point position, Size size, ColorContainer colorContainer)
         {
             return new PRectangle(position, size, colorContainer);
+        }
+
+        public override PaintingObject GetInstance(Point position)
+        {
+            return new PRectangle(position, new Size(1,1), new ColorContainer());
         }
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Color\ColorContainer.cs" />
     <Compile Include="Classes\Managers\LivePreview\ILivePreview.cs" />
     <Compile Include="Classes\Managers\Main\MainManager.cs" />
     <Compile Include="Classes\Managers\Memory\IPaintingMemoryManager.cs" />

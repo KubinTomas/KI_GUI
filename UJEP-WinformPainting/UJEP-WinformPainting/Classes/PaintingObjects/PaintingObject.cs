@@ -36,7 +36,11 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
             ColorContainer = colorContainer;
         }
 
+        public PaintingObject() { }
+
         public abstract PaintingObject GetInstance(Point position, Size size, ColorContainer colorContainer);
+
+        public abstract PaintingObject GetInstance(Point position);
 
         public abstract void Update(Point currentMousPosition);
 
