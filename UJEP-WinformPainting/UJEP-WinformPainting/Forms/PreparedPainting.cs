@@ -15,7 +15,6 @@ namespace UJEP_WinformPainting.Forms
 {
     public partial class PreparedPainting : Form
     {
-
         private MainManager manager;
         public PreparedPainting()
         {
@@ -57,7 +56,7 @@ namespace UJEP_WinformPainting.Forms
 
         private void canvasRefresherTimer_Tick(object sender, EventArgs e)
         {
-            //zajisti prekresleni
+            //zajisti prekresleni v loopu
             canvas.Refresh();
         }
 
