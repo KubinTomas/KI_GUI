@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UJEP_WinformPainting.Classes.ColorCon;
 using UJEP_WinformPainting.Classes.Managers.LivePreview;
 using UJEP_WinformPainting.Classes.Managers.Memory;
 using UJEP_WinformPainting.Classes.PaitingObjects;
@@ -14,17 +15,16 @@ namespace UJEP_WinformPainting.Classes.Managers.Main
     public class MainManager : ILivePreview
     {
         public readonly IPaintingMemoryManager MemoryManager;
-
         public Tool SelectedTool { get; set; }
         public PaintingObject SelectedObject { get; set; }
+        public ColorContainer SelecedColorContainer { get; private set; }
 
         public MainManager(IPaintingMemoryManager memoryManager)
         {
             this.MemoryManager = memoryManager;
 
             this.SelectedTool = Tool.Default;
-
-            this.SelectedTool = Tool.Circle;
+            this.SelecedColorContainer = ColorContainer.Default;
         }
 
         public void UpdatePreview(Point currentMousePosition, PaintingObject paintingObject)
@@ -46,9 +46,14 @@ namespace UJEP_WinformPainting.Classes.Managers.Main
 
         public void BeginPreview(Point mousePosition)
         {
-            var paintingObject = SelectedTool.PaintingObject.GetInstance(mousePosition);
+            var paintingObject = SelectedTool.PaintingObject.GetInstance(mousePosition, SelecedColorContainer);
 
             BeginPreview(paintingObject);
+        }
+
+        public void SetSelectedColor(Color color)
+        {
+            SelecedColorContainer = new ColorContainer(new SolidBrush(color), new Pen(color), color);
         }
     }
 }

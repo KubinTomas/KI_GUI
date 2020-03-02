@@ -42,6 +42,9 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
 
         public abstract PaintingObject GetInstance(Point position);
 
+        public abstract PaintingObject GetInstance(Point position, ColorContainer colorContainer);
+
+
         public abstract void Update(Point currentMousPosition);
 
         public Rectangle GetRectangle()

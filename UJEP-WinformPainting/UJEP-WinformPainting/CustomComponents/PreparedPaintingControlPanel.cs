@@ -23,11 +23,29 @@ namespace UJEP_WinformPainting.CustomComponents
         public PreparedPaintingControlPanel()
         {
             InitializeComponent();
+
+            InitPreSelectedDefaultColorsBtn();
+        }
+
+        private void InitPreSelectedDefaultColorsBtn()
+        {
+            colorBlackBtn.Click += new EventHandler(onFastSaveColorBtnClick);
+            colorRedBtn.Click += new EventHandler(onFastSaveColorBtnClick);
+            colorGreenBtn.Click += new EventHandler(onFastSaveColorBtnClick);
+        }
+
+        private void onFastSaveColorBtnClick(object sender, EventArgs e)
+        {
+            currentSelectedColorBtn.BackColor = ((Button)sender).BackColor;
+
+            manager.SetSelectedColor(((Button)sender).BackColor);
         }
 
         public void SetManager(MainManager manager)
         {
             this.manager = manager;
+
+            currentSelectedColorBtn.BackColor = manager.SelecedColorContainer.Color;
         }
 
         private void penBtn_Click(object sender, EventArgs e)

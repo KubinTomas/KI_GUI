@@ -55,5 +55,10 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
         {
             return new PRectangle(position, new Size(1,1), new ColorContainer());
         }
+
+        public override PaintingObject GetInstance(Point position, ColorContainer colorContainer)
+        {
+            return new PRectangle(position, new Size(1, 1), colorContainer);
+        }
     }
 }

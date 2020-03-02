@@ -57,5 +57,9 @@ namespace UJEP_WinformPainting.Classes.PaintingObjects
             return new PCircle(position, new Size(1, 1), new ColorContainer());
         }
 
+        public override PaintingObject GetInstance(Point position, ColorContainer colorContainer)
+        {
+            return new PCircle(position, new Size(1, 1), colorContainer);
+        }
     }
 }

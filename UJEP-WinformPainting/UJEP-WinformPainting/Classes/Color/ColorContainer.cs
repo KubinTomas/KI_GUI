@@ -21,9 +21,11 @@ namespace UJEP_WinformPainting.Classes.ColorCon
         }
         public ColorContainer()
         {
-            Brush = Brushes.Black;
             Color = Color.Black;
-            Pen = Pens.Black;
+            Brush = new SolidBrush(Color);
+            Pen = new Pen(Color);
         }
+   
+        public static ColorContainer Default { get { return new ColorContainer(); } }
     }
 }
