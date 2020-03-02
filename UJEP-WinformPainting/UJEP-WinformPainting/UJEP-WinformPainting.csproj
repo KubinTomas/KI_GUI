@@ -57,6 +57,9 @@
     <Compile Include="Classes\Tools\CircleTool.cs" />
     <Compile Include="Classes\Tools\RectangleTool.cs" />
     <Compile Include="Classes\Tools\Tool.cs" />
+    <Compile Include="CustomComponents\Buttons\FlatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomComponents\PreparedPaintingControlPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -30,15 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreparedPaintingControlPanel));
             this.toolGroupBox = new System.Windows.Forms.GroupBox();
-            this.circleBtn = new System.Windows.Forms.Button();
-            this.rectangleBtn = new System.Windows.Forms.Button();
-            this.penBtn = new System.Windows.Forms.Button();
             this.colorGroupBox = new System.Windows.Forms.GroupBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.colorBlackBtn = new System.Windows.Forms.Button();
             this.colorGreenBtn = new System.Windows.Forms.Button();
             this.colorRedBtn = new System.Windows.Forms.Button();
             this.currentSelectedColorBtn = new System.Windows.Forms.Button();
+            this.circleBtn = new System.Windows.Forms.Button();
+            this.rectangleBtn = new System.Windows.Forms.Button();
+            this.penBtn = new System.Windows.Forms.Button();
+            this.flatButton1 = new UJEP_WinformPainting.CustomComponents.Buttons.FlatButton();
             this.toolGroupBox.SuspendLayout();
             this.colorGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -54,36 +55,6 @@
             this.toolGroupBox.TabIndex = 0;
             this.toolGroupBox.TabStop = false;
             this.toolGroupBox.Text = "Tools";
-            // 
-            // circleBtn
-            // 
-            this.circleBtn.Image = global::UJEP_WinformPainting.Properties.Resources.circleCursor1;
-            this.circleBtn.Location = new System.Drawing.Point(118, 35);
-            this.circleBtn.Name = "circleBtn";
-            this.circleBtn.Size = new System.Drawing.Size(50, 50);
-            this.circleBtn.TabIndex = 2;
-            this.circleBtn.UseVisualStyleBackColor = true;
-            this.circleBtn.Click += new System.EventHandler(this.circleBtn_Click);
-            // 
-            // rectangleBtn
-            // 
-            this.rectangleBtn.Image = global::UJEP_WinformPainting.Properties.Resources.rectangleV4;
-            this.rectangleBtn.Location = new System.Drawing.Point(62, 35);
-            this.rectangleBtn.Name = "rectangleBtn";
-            this.rectangleBtn.Size = new System.Drawing.Size(50, 50);
-            this.rectangleBtn.TabIndex = 1;
-            this.rectangleBtn.UseVisualStyleBackColor = true;
-            this.rectangleBtn.Click += new System.EventHandler(this.rectangleBtn_Click);
-            // 
-            // penBtn
-            // 
-            this.penBtn.Image = ((System.Drawing.Image)(resources.GetObject("penBtn.Image")));
-            this.penBtn.Location = new System.Drawing.Point(6, 35);
-            this.penBtn.Name = "penBtn";
-            this.penBtn.Size = new System.Drawing.Size(50, 50);
-            this.penBtn.TabIndex = 0;
-            this.penBtn.UseVisualStyleBackColor = true;
-            this.penBtn.Click += new System.EventHandler(this.penBtn_Click);
             // 
             // colorGroupBox
             // 
@@ -134,11 +105,51 @@
             this.currentSelectedColorBtn.TabIndex = 3;
             this.currentSelectedColorBtn.UseVisualStyleBackColor = false;
             // 
+            // circleBtn
+            // 
+            this.circleBtn.Image = global::UJEP_WinformPainting.Properties.Resources.circleCursor1;
+            this.circleBtn.Location = new System.Drawing.Point(118, 35);
+            this.circleBtn.Name = "circleBtn";
+            this.circleBtn.Size = new System.Drawing.Size(50, 50);
+            this.circleBtn.TabIndex = 2;
+            this.circleBtn.UseVisualStyleBackColor = true;
+            this.circleBtn.Click += new System.EventHandler(this.circleBtn_Click);
+            // 
+            // rectangleBtn
+            // 
+            this.rectangleBtn.Image = global::UJEP_WinformPainting.Properties.Resources.rectangleV4;
+            this.rectangleBtn.Location = new System.Drawing.Point(62, 35);
+            this.rectangleBtn.Name = "rectangleBtn";
+            this.rectangleBtn.Size = new System.Drawing.Size(50, 50);
+            this.rectangleBtn.TabIndex = 1;
+            this.rectangleBtn.UseVisualStyleBackColor = true;
+            this.rectangleBtn.Click += new System.EventHandler(this.rectangleBtn_Click);
+            // 
+            // penBtn
+            // 
+            this.penBtn.Image = ((System.Drawing.Image)(resources.GetObject("penBtn.Image")));
+            this.penBtn.Location = new System.Drawing.Point(6, 35);
+            this.penBtn.Name = "penBtn";
+            this.penBtn.Size = new System.Drawing.Size(50, 50);
+            this.penBtn.TabIndex = 0;
+            this.penBtn.UseVisualStyleBackColor = true;
+            this.penBtn.Click += new System.EventHandler(this.penBtn_Click);
+            // 
+            // flatButton1
+            // 
+            this.flatButton1.BorderThickness = 2F;
+            this.flatButton1.Location = new System.Drawing.Point(1006, 19);
+            this.flatButton1.Name = "flatButton1";
+            this.flatButton1.Size = new System.Drawing.Size(127, 23);
+            this.flatButton1.TabIndex = 2;
+            this.flatButton1.Text = "I am custon Flat";
+            // 
             // PreparedPaintingControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.Controls.Add(this.flatButton1);
             this.Controls.Add(this.colorGroupBox);
             this.Controls.Add(this.toolGroupBox);
             this.Name = "PreparedPaintingControlPanel";
@@ -161,5 +172,6 @@
         private System.Windows.Forms.Button colorBlackBtn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button currentSelectedColorBtn;
+        private Buttons.FlatButton flatButton1;
     }
 }

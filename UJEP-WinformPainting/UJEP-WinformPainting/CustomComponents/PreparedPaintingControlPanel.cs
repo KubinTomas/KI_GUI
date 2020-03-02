@@ -25,6 +25,7 @@ namespace UJEP_WinformPainting.CustomComponents
             InitializeComponent();
 
             InitPreSelectedDefaultColorsBtn();
+
         }
 
         private void InitPreSelectedDefaultColorsBtn()
