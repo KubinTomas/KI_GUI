@@ -20,7 +20,7 @@ namespace UJEP_WinformPainting.CustomComponents.Buttons
 
         public override Cursor Cursor { get; set; } = Cursors.Hand;
         public float BorderThickness { get; set; } = 2;
-
+        public int PressCounter { get; private set; }
 
         public FlatButton()
         {
@@ -35,6 +35,7 @@ namespace UJEP_WinformPainting.CustomComponents.Buttons
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
 
+            PressCounter = 0;
 
             this.Paint += FlatButton_paint;
         }
@@ -43,7 +44,7 @@ namespace UJEP_WinformPainting.CustomComponents.Buttons
         {
             borderRectangle = new Rectangle(0, 0, Width, Height);
             e.Graphics.DrawRectangle(new Pen(borderBrush, BorderThickness), borderRectangle);
-            e.Graphics.DrawString(this.Text, this.Font,(isActive) ? textBrush : borderBrush, borderRectangle, stringFormat);
+            e.Graphics.DrawString(this.Text + ": " + PressCounter, this.Font,(isActive) ? textBrush : borderBrush, borderRectangle, stringFormat);
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -51,6 +52,8 @@ namespace UJEP_WinformPainting.CustomComponents.Buttons
             base.OnMouseDown(e);
             base.BackColor = Color.Gray;
             isActive = true;
+
+            PressCounter++;
         }
 
         protected override void OnMouseUp(MouseEventArgs e)

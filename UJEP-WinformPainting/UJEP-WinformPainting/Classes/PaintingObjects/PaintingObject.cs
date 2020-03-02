@@ -38,6 +38,10 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
 
         public PaintingObject() { }
 
+        public PaintingObject(ColorContainer colorContainer) {
+            ColorContainer = colorContainer;
+        }
+
         public abstract PaintingObject GetInstance(Point position, Size size, ColorContainer colorContainer);
 
         public abstract PaintingObject GetInstance(Point position);

@@ -25,7 +25,6 @@ namespace UJEP_WinformPainting.CustomComponents
             InitializeComponent();
 
             InitPreSelectedDefaultColorsBtn();
-
         }
 
         private void InitPreSelectedDefaultColorsBtn()
@@ -51,7 +50,7 @@ namespace UJEP_WinformPainting.CustomComponents
 
         private void penBtn_Click(object sender, EventArgs e)
         {
-
+            manager.SelectedTool = Tool.Pen;
         }
 
         private void rectangleBtn_Click(object sender, EventArgs e)

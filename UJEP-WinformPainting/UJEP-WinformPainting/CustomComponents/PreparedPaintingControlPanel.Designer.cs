@@ -39,7 +39,7 @@
             this.circleBtn = new System.Windows.Forms.Button();
             this.rectangleBtn = new System.Windows.Forms.Button();
             this.penBtn = new System.Windows.Forms.Button();
-            this.flatButton1 = new UJEP_WinformPainting.CustomComponents.Buttons.FlatButton();
+            this.flatBtn = new UJEP_WinformPainting.CustomComponents.Buttons.FlatButton();
             this.toolGroupBox.SuspendLayout();
             this.colorGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -135,21 +135,21 @@
             this.penBtn.UseVisualStyleBackColor = true;
             this.penBtn.Click += new System.EventHandler(this.penBtn_Click);
             // 
-            // flatButton1
+            // flatBtn
             // 
-            this.flatButton1.BorderThickness = 2F;
-            this.flatButton1.Location = new System.Drawing.Point(1006, 19);
-            this.flatButton1.Name = "flatButton1";
-            this.flatButton1.Size = new System.Drawing.Size(127, 23);
-            this.flatButton1.TabIndex = 2;
-            this.flatButton1.Text = "I am custon Flat";
+            this.flatBtn.BorderThickness = 2F;
+            this.flatBtn.Location = new System.Drawing.Point(1006, 19);
+            this.flatBtn.Name = "flatBtn";
+            this.flatBtn.Size = new System.Drawing.Size(127, 23);
+            this.flatBtn.TabIndex = 2;
+            this.flatBtn.Text = "I am custon Flat";
             // 
             // PreparedPaintingControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.Controls.Add(this.flatButton1);
+            this.Controls.Add(this.flatBtn);
             this.Controls.Add(this.colorGroupBox);
             this.Controls.Add(this.toolGroupBox);
             this.Name = "PreparedPaintingControlPanel";
@@ -172,6 +172,6 @@
         private System.Windows.Forms.Button colorBlackBtn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button currentSelectedColorBtn;
-        private Buttons.FlatButton flatButton1;
+        private Buttons.FlatButton flatBtn;
     }
 }
