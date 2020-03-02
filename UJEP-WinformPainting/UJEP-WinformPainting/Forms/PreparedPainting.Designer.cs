@@ -31,15 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.canvas = new System.Windows.Forms.PictureBox();
             this.canvasRefresherTimer = new System.Windows.Forms.Timer(this.components);
+            this.preparedPaintingControlPanel = new UJEP_WinformPainting.CustomComponents.PreparedPaintingControlPanel();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.SuspendLayout();
             // 
             // canvas
             // 
             this.canvas.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.canvas.Location = new System.Drawing.Point(22, 249);
+            this.canvas.Location = new System.Drawing.Point(22, 138);
             this.canvas.Name = "canvas";
-            this.canvas.Size = new System.Drawing.Size(1150, 500);
+            this.canvas.Size = new System.Drawing.Size(1150, 600);
             this.canvas.TabIndex = 0;
             this.canvas.TabStop = false;
             this.canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_Paint);
@@ -51,11 +52,20 @@
             // 
             this.canvasRefresherTimer.Tick += new System.EventHandler(this.canvasRefresherTimer_Tick);
             // 
+            // preparedPaintingControlPanel
+            // 
+            this.preparedPaintingControlPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.preparedPaintingControlPanel.Location = new System.Drawing.Point(22, 12);
+            this.preparedPaintingControlPanel.Name = "preparedPaintingControlPanel";
+            this.preparedPaintingControlPanel.Size = new System.Drawing.Size(1150, 120);
+            this.preparedPaintingControlPanel.TabIndex = 1;
+            // 
             // PreparedPainting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.preparedPaintingControlPanel);
             this.Controls.Add(this.canvas);
             this.Name = "PreparedPainting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -69,5 +79,6 @@
 
         private System.Windows.Forms.PictureBox canvas;
         private System.Windows.Forms.Timer canvasRefresherTimer;
+        private CustomComponents.PreparedPaintingControlPanel preparedPaintingControlPanel;
     }
 }

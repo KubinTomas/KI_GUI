@@ -8,7 +8,7 @@ using UJEP_WinformPainting.Classes.PaitingObjects;
 
 namespace UJEP_WinformPainting.Classes.Tools
 {
-    abstract class Tool
+    public abstract class Tool
     {
         public PaintingObject PaintingObject { get; protected set; }
         public string Identifier { get; protected set; }

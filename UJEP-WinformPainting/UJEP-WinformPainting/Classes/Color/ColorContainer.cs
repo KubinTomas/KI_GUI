@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UJEP_WinformPainting.Classes.ColorCon
 {
-    class ColorContainer
+    public class ColorContainer
     {
         public Color Color { get; set; }
         public Brush Brush { get; set; }

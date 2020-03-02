@@ -8,7 +8,7 @@ using UJEP_WinformPainting.Classes.PaitingObjects;
 
 namespace UJEP_WinformPainting.Classes.Managers.Memory
 {
-    interface IPaintingMemoryManager
+    public interface IPaintingMemoryManager
     {
         void Add(PaintingObject paintingObject);
         void Remove(PaintingObject paintingObject);

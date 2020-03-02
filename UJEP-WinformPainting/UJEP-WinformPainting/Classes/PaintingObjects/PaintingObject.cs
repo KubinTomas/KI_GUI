@@ -8,7 +8,7 @@ using UJEP_WinformPainting.Classes.ColorCon;
 
 namespace UJEP_WinformPainting.Classes.PaitingObjects
 {
-    abstract class PaintingObject
+    public abstract class PaintingObject
     {
         #region uniqueId 
         public static int UniqueId
@@ -24,7 +24,7 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
         #endregion
 
         public readonly int Id;
-        public ColorContainer ColorContainer{ get; set; }
+        public ColorContainer ColorContainer { get; set; }
         public Point Position { get; set; }
         public Size Size { get; set; }
 

@@ -11,7 +11,7 @@ using UJEP_WinformPainting.Classes.Tools;
 
 namespace UJEP_WinformPainting.Classes.Managers.Main
 {
-    class MainManager: ILivePreview
+    public class MainManager : ILivePreview
     {
         public readonly IPaintingMemoryManager MemoryManager;
 
@@ -29,7 +29,7 @@ namespace UJEP_WinformPainting.Classes.Managers.Main
 
         public void UpdatePreview(Point currentMousePosition, PaintingObject paintingObject)
         {
-            if(paintingObject != null) paintingObject.Update(currentMousePosition);
+            if (paintingObject != null) paintingObject.Update(currentMousePosition);
         }
 
         public void BeginPreview(PaintingObject paintingObject)

@@ -21,6 +21,8 @@ namespace UJEP_WinformPainting.Forms
             InitializeComponent();
 
             manager = new MainManager(new PaintingMemoryManager());
+
+            this.preparedPaintingControlPanel.SetManager(manager);
         }
 
         private void canvas_Paint(object sender, PaintEventArgs e)

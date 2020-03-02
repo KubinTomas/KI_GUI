@@ -57,6 +57,12 @@
     <Compile Include="Classes\Tools\CircleTool.cs" />
     <Compile Include="Classes\Tools\RectangleTool.cs" />
     <Compile Include="Classes\Tools\Tool.cs" />
+    <Compile Include="CustomComponents\PreparedPaintingControlPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomComponents\PreparedPaintingControlPanel.Designer.cs">
+      <DependentUpon>PreparedPaintingControlPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomComponents\PreparedPaintingControlPanel.resx">
+      <DependentUpon>PreparedPaintingControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +94,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -99,8 +109,25 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="CustomComponents\" />
+    <Content Include="Resources\circleCursor.png" />
+    <Content Include="Resources\circleCursor1.png" />
+    <Content Include="Resources\clearicon.png" />
+    <Content Include="Resources\fillColorCan.png" />
+    <Content Include="Resources\newIcon.png" />
+    <Content Include="Resources\randomPointColorIcon.png" />
+    <None Include="Resources\rectangleV4.png" />
+    <None Include="Resources\rectangleV3.png" />
+    <None Include="Resources\rectangleV2.png" />
+    <Content Include="Resources\redrawIcon.png" />
+    <Content Include="Resources\saveIcon.png" />
+    <Content Include="Resources\saveIcon1.png" />
+    <Content Include="Resources\setPreviousColorIcon.jpg.png" />
+    <Content Include="Resources\setPreviousColorIcon.png" />
+    <Content Include="Resources\straightLineCursor.png" />
+    <Content Include="Resources\straightLineCursor1.png" />
+    <Content Include="Resources\triangleCursor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
