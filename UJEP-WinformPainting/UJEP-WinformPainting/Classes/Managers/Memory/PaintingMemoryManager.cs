@@ -38,7 +38,7 @@ namespace UJEP_WinformPainting.Classes
 
         public PaintingObject GetObjectOnPosition(Point mousePosition)
         {
-            return paintingObjects.SingleOrDefault(c => c.Intresect(mousePosition));
+            return paintingObjects.FirstOrDefault(c => c.Intresect(mousePosition));
         }
     
         public void Remove(PaintingObject paintingObject)

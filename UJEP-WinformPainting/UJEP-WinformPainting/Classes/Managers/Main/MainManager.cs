@@ -29,7 +29,20 @@ namespace UJEP_WinformPainting.Classes.Managers.Main
 
         public void UpdatePreview(Point currentMousePosition, PaintingObject paintingObject)
         {
-            if (paintingObject != null) paintingObject.Update(currentMousePosition);
+            if (paintingObject != null) 
+                paintingObject.Update(currentMousePosition);
+        }
+
+        public void UpdatePosition(Point currentPoisition, Point previousePosition, PaintingObject paintingObject)
+        {
+            var move = new Point(currentPoisition.X - previousePosition.X, currentPoisition.Y - previousePosition.Y);
+
+            paintingObject.UpdatePosition(move);
+        }
+
+        public bool IsMovingObject()
+        {
+            return SelectedObject != null && !SelectedObject.IsBeingCreated;
         }
 
         public void BeginPreview(PaintingObject paintingObject)
@@ -41,6 +54,7 @@ namespace UJEP_WinformPainting.Classes.Managers.Main
 
         public void EndPreview()
         {
+            SelectedObject.IsBeingCreated = false;
             SelectedObject = null;
         }
 
@@ -53,7 +67,7 @@ namespace UJEP_WinformPainting.Classes.Managers.Main
         }
         private void SetSelectedObject(Point mousePosition)
         {
-            var selectedObject = MemoryManager.GetObjectOnPosition(mousePosition);
+            SelectedObject = MemoryManager.GetObjectOnPosition(mousePosition);
         }
 
         private void BeginDrawing(Point mousePosition)
@@ -71,7 +85,8 @@ namespace UJEP_WinformPainting.Classes.Managers.Main
 
         public void SetSelectedColor(Color color)
         {
-            SelecedColorContainer = new ColorContainer(new SolidBrush(color), new Pen(color, 8), color);
+            //k jine sirce staci upravit pen size
+            SelecedColorContainer = new ColorContainer(new SolidBrush(color), new Pen(color), color);
         }
     }
 }

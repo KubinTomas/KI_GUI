@@ -27,8 +27,9 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
         public ColorContainer ColorContainer { get; set; }
         public Point Position { get; set; }
         public Size Size { get; set; }
+        public bool IsBeingCreated { get; set; }
 
-        public PaintingObject(Point position, Size size, ColorContainer colorContainer)
+        public PaintingObject(Point position, Size size, ColorContainer colorContainer) : this()
         {
             Position = position;
             Size = size;
@@ -36,9 +37,12 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
             ColorContainer = colorContainer;
         }
 
-        public PaintingObject() { }
+        public PaintingObject()
+        {
+            IsBeingCreated = true;
+        }
 
-        public PaintingObject(ColorContainer colorContainer)
+        public PaintingObject(ColorContainer colorContainer) : this()
         {
             ColorContainer = colorContainer;
         }
@@ -55,7 +59,12 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
                 && Position.Y <= mousePosition.Y && mousePosition.Y <= Position.Y + Size.Height;
         }
 
-        public abstract void Update(Point currentMousPosition);
+        public abstract void Update(Point currentMousePosition);
+
+        public void UpdatePosition(Point positionMove)
+        {
+            Position = new Point(Position.X + positionMove.X, Position.Y + positionMove.Y);
+        }
 
         public Rectangle GetRectangle()
         {
@@ -68,6 +77,11 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
         }
 
         public abstract void Draw(Graphics g);
+
+        public void DrawSelection(Graphics g)
+        {
+            g.DrawRectangle(Pens.Blue, GetRectangle());
+        }
 
     }
 }

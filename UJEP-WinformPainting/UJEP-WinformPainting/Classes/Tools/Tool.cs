@@ -21,5 +21,7 @@ namespace UJEP_WinformPainting.Classes.Tools
         public static Tool Default { get { return new RectangleTool(); } }
         public static Tool Rectanhgle { get { return new RectangleTool(); } }
         public static Tool Circle { get { return new CircleTool(); } }
+        public static Tool Grab { get { return new GrabTool(); } }
+
     }
 }
