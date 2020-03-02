@@ -31,21 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreparedPaintingControlPanel));
             this.toolGroupBox = new System.Windows.Forms.GroupBox();
             this.colorGroupBox = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.colorBlackBtn = new System.Windows.Forms.Button();
-            this.colorGreenBtn = new System.Windows.Forms.Button();
-            this.colorRedBtn = new System.Windows.Forms.Button();
             this.currentSelectedColorBtn = new System.Windows.Forms.Button();
+            this.colorRedBtn = new System.Windows.Forms.Button();
+            this.colorGreenBtn = new System.Windows.Forms.Button();
+            this.colorBlackBtn = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.flatBtn = new UJEP_WinformPainting.CustomComponents.Buttons.FlatButton();
+            this.grabBtn = new System.Windows.Forms.Button();
             this.circleBtn = new System.Windows.Forms.Button();
             this.rectangleBtn = new System.Windows.Forms.Button();
             this.penBtn = new System.Windows.Forms.Button();
-            this.flatBtn = new UJEP_WinformPainting.CustomComponents.Buttons.FlatButton();
             this.toolGroupBox.SuspendLayout();
             this.colorGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolGroupBox
             // 
+            this.toolGroupBox.Controls.Add(this.grabBtn);
             this.toolGroupBox.Controls.Add(this.circleBtn);
             this.toolGroupBox.Controls.Add(this.rectangleBtn);
             this.toolGroupBox.Controls.Add(this.penBtn);
@@ -69,23 +71,14 @@
             this.colorGroupBox.TabStop = false;
             this.colorGroupBox.Text = "Colors";
             // 
-            // colorBlackBtn
+            // currentSelectedColorBtn
             // 
-            this.colorBlackBtn.BackColor = System.Drawing.Color.Black;
-            this.colorBlackBtn.Location = new System.Drawing.Point(7, 20);
-            this.colorBlackBtn.Name = "colorBlackBtn";
-            this.colorBlackBtn.Size = new System.Drawing.Size(25, 25);
-            this.colorBlackBtn.TabIndex = 0;
-            this.colorBlackBtn.UseVisualStyleBackColor = false;
-            // 
-            // colorGreenBtn
-            // 
-            this.colorGreenBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.colorGreenBtn.Location = new System.Drawing.Point(38, 20);
-            this.colorGreenBtn.Name = "colorGreenBtn";
-            this.colorGreenBtn.Size = new System.Drawing.Size(25, 25);
-            this.colorGreenBtn.TabIndex = 1;
-            this.colorGreenBtn.UseVisualStyleBackColor = false;
+            this.currentSelectedColorBtn.BackColor = System.Drawing.Color.Black;
+            this.currentSelectedColorBtn.Location = new System.Drawing.Point(195, 15);
+            this.currentSelectedColorBtn.Name = "currentSelectedColorBtn";
+            this.currentSelectedColorBtn.Size = new System.Drawing.Size(12, 88);
+            this.currentSelectedColorBtn.TabIndex = 3;
+            this.currentSelectedColorBtn.UseVisualStyleBackColor = false;
             // 
             // colorRedBtn
             // 
@@ -96,14 +89,43 @@
             this.colorRedBtn.TabIndex = 2;
             this.colorRedBtn.UseVisualStyleBackColor = false;
             // 
-            // currentSelectedColorBtn
+            // colorGreenBtn
             // 
-            this.currentSelectedColorBtn.BackColor = System.Drawing.Color.Black;
-            this.currentSelectedColorBtn.Location = new System.Drawing.Point(195, 15);
-            this.currentSelectedColorBtn.Name = "currentSelectedColorBtn";
-            this.currentSelectedColorBtn.Size = new System.Drawing.Size(12, 88);
-            this.currentSelectedColorBtn.TabIndex = 3;
-            this.currentSelectedColorBtn.UseVisualStyleBackColor = false;
+            this.colorGreenBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.colorGreenBtn.Location = new System.Drawing.Point(38, 20);
+            this.colorGreenBtn.Name = "colorGreenBtn";
+            this.colorGreenBtn.Size = new System.Drawing.Size(25, 25);
+            this.colorGreenBtn.TabIndex = 1;
+            this.colorGreenBtn.UseVisualStyleBackColor = false;
+            // 
+            // colorBlackBtn
+            // 
+            this.colorBlackBtn.BackColor = System.Drawing.Color.Black;
+            this.colorBlackBtn.Location = new System.Drawing.Point(7, 20);
+            this.colorBlackBtn.Name = "colorBlackBtn";
+            this.colorBlackBtn.Size = new System.Drawing.Size(25, 25);
+            this.colorBlackBtn.TabIndex = 0;
+            this.colorBlackBtn.UseVisualStyleBackColor = false;
+            // 
+            // flatBtn
+            // 
+            this.flatBtn.BackColor = System.Drawing.Color.Red;
+            this.flatBtn.BorderThickness = 2F;
+            this.flatBtn.Location = new System.Drawing.Point(1006, 19);
+            this.flatBtn.Name = "flatBtn";
+            this.flatBtn.Size = new System.Drawing.Size(127, 23);
+            this.flatBtn.TabIndex = 2;
+            this.flatBtn.Text = "I am custon Flat";
+            // 
+            // grabBtn
+            // 
+            this.grabBtn.Image = global::UJEP_WinformPainting.Properties.Resources.grabV2;
+            this.grabBtn.Location = new System.Drawing.Point(174, 35);
+            this.grabBtn.Name = "grabBtn";
+            this.grabBtn.Size = new System.Drawing.Size(50, 50);
+            this.grabBtn.TabIndex = 3;
+            this.grabBtn.UseVisualStyleBackColor = true;
+            this.grabBtn.Click += new System.EventHandler(this.grabBtn_Click);
             // 
             // circleBtn
             // 
@@ -135,15 +157,6 @@
             this.penBtn.UseVisualStyleBackColor = true;
             this.penBtn.Click += new System.EventHandler(this.penBtn_Click);
             // 
-            // flatBtn
-            // 
-            this.flatBtn.BorderThickness = 2F;
-            this.flatBtn.Location = new System.Drawing.Point(1006, 19);
-            this.flatBtn.Name = "flatBtn";
-            this.flatBtn.Size = new System.Drawing.Size(127, 23);
-            this.flatBtn.TabIndex = 2;
-            this.flatBtn.Text = "I am custon Flat";
-            // 
             // PreparedPaintingControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,5 +186,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button currentSelectedColorBtn;
         private Buttons.FlatButton flatBtn;
+        private System.Windows.Forms.Button grabBtn;
     }
 }

@@ -14,6 +14,7 @@ namespace UJEP_WinformPainting.Classes.Managers.Memory
         void Remove(PaintingObject paintingObject);
         void Update(PaintingObject paintingObject);
         void Remove(int id);
+        PaintingObject GetObjectOnPosition(Point mousePosition);
         PaintingObject Get(int id);
         void Draw(Graphics graphics);
     }

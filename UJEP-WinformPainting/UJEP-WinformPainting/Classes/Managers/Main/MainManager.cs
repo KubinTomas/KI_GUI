@@ -46,14 +46,32 @@ namespace UJEP_WinformPainting.Classes.Managers.Main
 
         public void BeginPreview(Point mousePosition)
         {
+            if (IsGrabTool()) SetSelectedObject(mousePosition);
+            else
+                BeginDrawing(mousePosition);
+
+        }
+        private void SetSelectedObject(Point mousePosition)
+        {
+            var selectedObject = MemoryManager.GetObjectOnPosition(mousePosition);
+        }
+
+        private void BeginDrawing(Point mousePosition)
+        {
             var paintingObject = SelectedTool.PaintingObject.GetInstance(mousePosition, SelecedColorContainer);
 
             BeginPreview(paintingObject);
         }
 
+
+        private bool IsGrabTool()
+        {
+            return SelectedTool is GrabTool;
+        }
+
         public void SetSelectedColor(Color color)
         {
-            SelecedColorContainer = new ColorContainer(new SolidBrush(color), new Pen(color), color);
+            SelecedColorContainer = new ColorContainer(new SolidBrush(color), new Pen(color, 8), color);
         }
     }
 }

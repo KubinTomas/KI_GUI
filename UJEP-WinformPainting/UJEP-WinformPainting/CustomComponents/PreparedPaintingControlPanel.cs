@@ -62,5 +62,10 @@ namespace UJEP_WinformPainting.CustomComponents
         {
             manager.SelectedTool = Tool.Circle;
         }
+
+        private void grabBtn_Click(object sender, EventArgs e)
+        {
+            manager.SelectedTool = Tool.Grab;
+        }
     }
 }

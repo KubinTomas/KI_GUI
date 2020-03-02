@@ -38,7 +38,8 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
 
         public PaintingObject() { }
 
-        public PaintingObject(ColorContainer colorContainer) {
+        public PaintingObject(ColorContainer colorContainer)
+        {
             ColorContainer = colorContainer;
         }
 
@@ -48,6 +49,11 @@ namespace UJEP_WinformPainting.Classes.PaitingObjects
 
         public abstract PaintingObject GetInstance(Point position, ColorContainer colorContainer);
 
+        public bool Intresect(Point mousePosition)
+        {
+            return Position.X <= mousePosition.X && mousePosition.X <= Position.X + Size.Width
+                && Position.Y <= mousePosition.Y && mousePosition.Y <= Position.Y + Size.Height;
+        }
 
         public abstract void Update(Point currentMousPosition);
 
