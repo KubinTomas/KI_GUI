@@ -1,9 +1,13 @@
-﻿using System;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +30,7 @@ namespace UJEP_WinformPainting.Forms
 
             this.preparedPaintingControlPanel.SetManager(manager);
 
-           
+
 
         }
 
@@ -83,7 +87,8 @@ namespace UJEP_WinformPainting.Forms
         {
             if (manager.SelectedObject == null) return;
 
-            if (manager.IsMovingObject()) {
+            if (manager.IsMovingObject())
+            {
                 manager.UpdatePosition(e.Location, prevoiusPressedMousePosition, manager.SelectedObject);
 
                 prevoiusPressedMousePosition = e.Location;
@@ -116,7 +121,7 @@ namespace UJEP_WinformPainting.Forms
 
 
             //save image to jpg
-            if(e.KeyCode == Keys.S)
+            if (e.KeyCode == Keys.S)
             {
 
                 //canvas draw method neovlivnuje bitmapu, musime tedy vytvorit novou a zapsat primo do ni
@@ -145,6 +150,60 @@ namespace UJEP_WinformPainting.Forms
 
                     MessageBox.Show("Obrazek ulozen");
                 }
+            }
+
+            //ulozi pdf pomoci knihovny pdf Sharp
+            if (e.KeyCode == Keys.P)
+            {
+                //create a pdf document
+                PdfDocument document = new PdfDocument();
+                document.Info.Title = "Created with PDFsharp";
+
+                //creating emty page
+                PdfPage page = document.AddPage();
+
+                //get object for drawing
+                XGraphics gfx = XGraphics.FromPdfPage(page);
+
+                XFont font = new XFont("Verdana", 20, XFontStyle.BoldItalic);
+
+                gfx.DrawString("Hi, this is my awesome work.", font, XBrushes.Black,
+                    new XRect(0, 0, page.Width, page.Height),
+                    XStringFormats.Center);
+
+                PdfPage page2 = document.AddPage();
+
+                // Get an XGraphics object for drawing
+                XGraphics gfx2 = XGraphics.FromPdfPage(page2);
+
+                DrawImage(gfx2, 0, 0, 610, 610);
+
+
+                const string filename = "HelloWorld.pdf";
+
+                document.Save(filename);
+
+                Process.Start(filename);
+            }
+
+            void DrawImage(XGraphics gfx, int x, int y, int width, int height)
+            {
+
+                canvas.Image = new Bitmap(canvas.Width, canvas.Height);
+                var graphics = Graphics.FromImage(canvas.Image);
+
+                //vykreslime byli ctverec jako pozadi bitmapi, jinak by byla cerna
+                graphics.FillRectangle(Brushes.White, 0, 0, canvas.Width, canvas.Height);
+
+                //draw our stored objects
+                manager.MemoryManager.Draw(graphics);
+
+
+                var ms = new MemoryStream();
+                new Bitmap(canvas.Image).Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                XImage image = XImage.FromStream(ms);
+                gfx.DrawImage(image, x, y, width, height);
             }
         }
     }

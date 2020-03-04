@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,8 +59,11 @@
     <Compile Include="Classes\Managers\Memory\PaintingMemoryManager.cs" />
     <Compile Include="Classes\PaintingObjects\PaintingObject.cs" />
     <Compile Include="Classes\PaintingObjects\PCircle.cs" />
+    <Compile Include="Classes\PaintingObjects\PLines.cs" />
     <Compile Include="Classes\PaintingObjects\PRectangle.cs" />
     <Compile Include="Classes\Tools\CircleTool.cs" />
+    <Compile Include="Classes\Tools\GrabTool.cs" />
+    <Compile Include="Classes\Tools\PenTool.cs" />
     <Compile Include="Classes\Tools\RectangleTool.cs" />
     <Compile Include="Classes\Tools\Tool.cs" />
     <Compile Include="CustomComponents\Buttons\FlatButton.cs">
@@ -99,6 +108,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -118,6 +128,8 @@
     <Content Include="Resources\circleCursor1.png" />
     <Content Include="Resources\clearicon.png" />
     <Content Include="Resources\fillColorCan.png" />
+    <None Include="Resources\grab.png" />
+    <None Include="Resources\grabV2.png" />
     <Content Include="Resources\newIcon.png" />
     <Content Include="Resources\randomPointColorIcon.png" />
     <None Include="Resources\rectangleV4.png" />
