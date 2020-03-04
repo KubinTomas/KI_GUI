@@ -16,6 +16,7 @@ namespace UJEP_WinformPainting.Forms
     public partial class PreparedPainting : Form
     {
         private MainManager manager;
+        private Point prevoiusPressedMousePosition;
         public PreparedPainting()
         {
             InitializeComponent();
@@ -30,6 +31,9 @@ namespace UJEP_WinformPainting.Forms
             var graphics = e.Graphics;
 
             manager.MemoryManager.Draw(graphics);
+
+            if (manager.SelectedObject != null)
+                manager.SelectedObject.DrawSelection(graphics);
         }
 
         /// <summary>
@@ -39,6 +43,8 @@ namespace UJEP_WinformPainting.Forms
         /// <param name="e"></param>
         private void canvas_MouseUp(object sender, MouseEventArgs e)
         {
+            if (manager.SelectedObject == null) return;
+
             manager.EndPreview();
 
             canvas.Refresh();
@@ -52,6 +58,7 @@ namespace UJEP_WinformPainting.Forms
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
             manager.BeginPreview(e.Location);
+            prevoiusPressedMousePosition = e.Location;
 
             canvas.Refresh();
         }
@@ -64,10 +71,38 @@ namespace UJEP_WinformPainting.Forms
 
         private void canvas_MouseMove(object sender, MouseEventArgs e)
         {
-            manager.UpdatePreview(e.Location, manager.SelectedObject);
+            if (manager.SelectedObject == null) return;
+
+            if (manager.IsMovingObject()) {
+                manager.UpdatePosition(e.Location, prevoiusPressedMousePosition, manager.SelectedObject);
+
+                prevoiusPressedMousePosition = e.Location;
+            }
+            else
+                manager.UpdatePreview(e.Location, manager.SelectedObject);
 
             if (manager.SelectedObject != null)
                 canvas.Refresh();
+        }
+
+        /// <summary>
+        /// key preview musi byt true ve formulari a jejich properties
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PreparedPainting_KeyDown(object sender, KeyEventArgs e)
+        {
+            //&& manager.SelectedObject != null
+            if (e.KeyCode == Keys.Delete)
+            {
+                var paintingObjectId = manager.SelectedObject.Id;
+
+                manager.SelectedObject = null;
+
+                manager.MemoryManager.Remove(paintingObjectId);
+
+                this.canvas.Refresh();
+            }
         }
     }
 }

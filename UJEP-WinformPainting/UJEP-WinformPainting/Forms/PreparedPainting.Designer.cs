@@ -67,9 +67,11 @@
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.preparedPaintingControlPanel);
             this.Controls.Add(this.canvas);
+            this.KeyPreview = true;
             this.Name = "PreparedPainting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PreparedPainting";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PreparedPainting_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.ResumeLayout(false);
 
