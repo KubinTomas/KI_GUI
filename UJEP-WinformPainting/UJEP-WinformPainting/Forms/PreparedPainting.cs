@@ -150,6 +150,8 @@ namespace UJEP_WinformPainting.Forms
 
                     MessageBox.Show("Obrazek ulozen");
                 }
+
+
             }
 
             //ulozi pdf pomoci knihovny pdf Sharp
@@ -179,13 +181,16 @@ namespace UJEP_WinformPainting.Forms
                 DrawImage(gfx2, 0, 0, 610, 610);
 
 
-                const string filename = "HelloWorld.pdf";
+                const string filename = "painter.pdf";
+
+                //muze vyvolat chybu pri pokusu o prepsani, nemuzete mit otevrene pdf a pak chtit ho pregenerovat
 
                 document.Save(filename);
 
                 Process.Start(filename);
             }
 
+            
             void DrawImage(XGraphics gfx, int x, int y, int width, int height)
             {
 
@@ -205,6 +210,9 @@ namespace UJEP_WinformPainting.Forms
                 XImage image = XImage.FromStream(ms);
                 gfx.DrawImage(image, x, y, width, height);
             }
+
+            this.canvas.Refresh();
+            canvas.Image = null;
         }
     }
 }

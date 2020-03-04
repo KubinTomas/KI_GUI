@@ -50,7 +50,8 @@ namespace UJEP_WinformPainting.CustomComponents
 
         private void penBtn_Click(object sender, EventArgs e)
         {
-            manager.SelectedTool = Tool.Pen;
+            //not implemented yet
+            manager.SelectedTool = Tool.Default;
         }
 
         private void rectangleBtn_Click(object sender, EventArgs e)
