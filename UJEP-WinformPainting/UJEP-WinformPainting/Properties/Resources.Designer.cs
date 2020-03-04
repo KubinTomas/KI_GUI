@@ -73,6 +73,26 @@ namespace UJEP_WinformPainting.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap grab {
+            get {
+                object obj = ResourceManager.GetObject("grab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap grabV2 {
+            get {
+                object obj = ResourceManager.GetObject("grabV2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rectangleV2 {
             get {
                 object obj = ResourceManager.GetObject("rectangleV2", resourceCulture);
