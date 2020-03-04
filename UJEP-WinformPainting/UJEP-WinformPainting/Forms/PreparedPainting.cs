@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,11 +25,20 @@ namespace UJEP_WinformPainting.Forms
             manager = new MainManager(new PaintingMemoryManager());
 
             this.preparedPaintingControlPanel.SetManager(manager);
+
+           
+
         }
 
+        /// <summary>
+        /// paint neovlivnuje picture box, tudiz image/bg image je null i kdyz to vypada ze kreslime
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void canvas_Paint(object sender, PaintEventArgs e)
         {
             var graphics = e.Graphics;
+
 
             manager.MemoryManager.Draw(graphics);
 
@@ -102,6 +112,39 @@ namespace UJEP_WinformPainting.Forms
                 manager.MemoryManager.Remove(paintingObjectId);
 
                 this.canvas.Refresh();
+            }
+
+
+            //save image to jpg
+            if(e.KeyCode == Keys.S)
+            {
+
+                //canvas draw method neovlivnuje bitmapu, musime tedy vytvorit novou a zapsat primo do ni
+
+                canvas.Image = new Bitmap(canvas.Width, canvas.Height);
+                var graphics = Graphics.FromImage(canvas.Image);
+
+                //vykreslime byli ctverec jako pozadi bitmapi, jinak by byla cerna
+                graphics.FillRectangle(Brushes.White, 0, 0, canvas.Width, canvas.Height);
+
+                //draw our stored objects
+                manager.MemoryManager.Draw(graphics);
+
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.FileName = "image";
+                saveDialog.DefaultExt = "jpg";
+                saveDialog.Filter = "JPG images (*.jpg)|*.jpg";
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var fileName = saveDialog.FileName;
+                    if (!System.IO.Path.HasExtension(fileName) || System.IO.Path.GetExtension(fileName) != "jpg")
+                        fileName = fileName + ".jpg";
+
+                    new Bitmap(canvas.Image).Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                    MessageBox.Show("Obrazek ulozen");
+                }
             }
         }
     }

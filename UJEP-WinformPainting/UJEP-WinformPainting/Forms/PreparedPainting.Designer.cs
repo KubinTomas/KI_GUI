@@ -37,7 +37,7 @@
             // 
             // canvas
             // 
-            this.canvas.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.canvas.BackColor = System.Drawing.Color.White;
             this.canvas.Location = new System.Drawing.Point(22, 138);
             this.canvas.Name = "canvas";
             this.canvas.Size = new System.Drawing.Size(1150, 600);
